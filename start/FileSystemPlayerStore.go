@@ -1,4 +1,4 @@
-package main
+package poker
 
 import (
 	"encoding/json"
@@ -13,9 +13,12 @@ type FileSystemPlayerStore struct {
 }
 
 func (f *FileSystemPlayerStore) GetLeague() League {
+	fmt.Println("league:", f.league)
 	sort.Slice(f.league, func(i, j int) bool {
 		return f.league[i].Wins > f.league[j].Wins
 	})
+	fmt.Println("league:", f.league)
+
 	return f.league
 
 }
