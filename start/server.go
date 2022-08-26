@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 )
 
@@ -10,6 +11,10 @@ type PlayerStore interface {
 	GetPlayerScore(name string) int
 	RecordWin(name string)
 	GetLeague() League
+}
+type ReadWriteSeekTruncate interface {
+	io.ReadWriteSeeker
+	Truncate(size int64) error
 }
 
 type PlayerServer struct {
