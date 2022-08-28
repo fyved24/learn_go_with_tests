@@ -9,11 +9,10 @@ import (
 const dbFileName = "game.db.json"
 
 func main() {
-
 	store, err := poker.FileSystemPlayerStoreFromFile(dbFileName)
 
 	if err != nil {
-		log.Fatalf("problem creating file system player store, %v ", err)
+		log.Fatal(err)
 	}
 
 	server := poker.NewPlayerServer(store)
