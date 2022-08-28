@@ -19,7 +19,6 @@ func ConfigurableRacer(a, b string, timeout time.Duration) (winner string, nil e
 		return a, nil
 	case <-ping(b):
 		fmt.Println("b is the winner")
-
 		return b, nil
 	case <-time.After(timeout):
 		fmt.Println("timeout")
